@@ -17,4 +17,3 @@ export const activate = async (context: vscode.ExtensionContext) => {
     console.warn('Failed to activate extension', err)
   }
 }
-
