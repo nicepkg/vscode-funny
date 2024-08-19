@@ -1,0 +1,115 @@
+{
+  "publisher": "nicepkg",
+  "name": "vscode-funny",
+  "displayName": "VSCode Funny",
+  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.3.0",
+  "author": "Nicepkg <2214962083@qq.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/2214962083",
+  "homepage": "https://github.com/nicepkg/vscode-funny#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicepkg/vscode-funny"
+  },
+  "bugs": {
+    "url": "https://github.com/nicepkg/vscode-funny/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/2214962083"
+  },
+  "keywords": [],
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "res/icon.png",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "vscode-funny.enableFightAnimation": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%config.enableFightAnimation.description%"
+        },
+        "vscode-funny.fightAnimationSize": {
+          "type": "number",
+          "default": 200,
+          "markdownDescription": "%config.fightAnimationSize.description%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "copyFiles": "fse copy ./package.nls.en.json ./package.nls.json",
+    "dev": "code --extensionDevelopmentPath=$PWD --disable-extensions &&pnpm run watch",
+    "build": "tsc --noEmit &&pnpm run copyFiles &&tsup",
+    "build:pack": "pnpm run build &&vsce package -o ./vscode-funny.vsix --no-dependencies",
+    "commit": "git add . && cz",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "publish": "esno ./scripts/publish.ts",
+    "prepare": "husky",
+    "test": "tsc --noEmit &&vitest --run",
+    "watch": "pnpm run build --watch --sourcemap"
+  },
+  "devDependencies": {
+    "@atao60/fse-cli": "^0.1.9",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.4.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.2.0",
+    "@types/vscode": "1.82.0",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "@vscode/vsce": "^2.31.1",
+    "commitizen": "^4.3.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "esno": "^4.7.0",
+    "execa": "^9.3.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "pnpm": "^9.7.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.2.4",
+    "typescript": "5.4.5",
+    "undici": "^6.19.7",
+    "vitest": "^2.0.5"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "pnpm exec eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./cz-adapter.cjs"
+    }
+  }
+}

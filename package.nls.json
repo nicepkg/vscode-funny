@@ -1,0 +1,5 @@
+{
+  "config.title": "VSCode Funny",
+  "config.enableFightAnimation.description": "Enable fight animation when typing",
+  "config.fightAnimationSize.description": "Size of the fight animation in pixels"
+}

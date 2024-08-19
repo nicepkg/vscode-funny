@@ -1,0 +1,5 @@
+{
+  "config.title": "VSCode Funny",
+  "config.enableFightAnimation.description": "启用打字时的战斗动画",
+  "config.fightAnimationSize.description": "战斗动画大小（像素）"
+}
