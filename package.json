@@ -33,6 +33,24 @@
     "onStartupFinished"
   ],
   "contributes": {
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "funnyBrowser",
+          "title": "Funny Browser",
+          "icon": "res/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "funnyBrowser": [
+        {
+          "type": "webview",
+          "id": "funnyBrowserWebview",
+          "name": "Funny Browser"
+        }
+      ]
+    },
     "configuration": {
       "title": "%config.title%",
       "properties": {

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 
-import { activateFightAnimation } from './fightAnimation'
+import { activateFunnyBrowser } from './explorerWebview'
 import { initializeLocalization } from './i18n'
 
 export const activate = async (context: vscode.ExtensionContext) => {
@@ -9,10 +9,8 @@ export const activate = async (context: vscode.ExtensionContext) => {
 
     await initializeLocalization()
 
-    // Add this line to activate the fight animation feature
-    activateFightAnimation(context)
-
-    // await renderWebview(context)
+    // Activate the Funny Browser WebView
+    activateFunnyBrowser(context)
   } catch (err) {
     console.warn('Failed to activate extension', err)
   }
